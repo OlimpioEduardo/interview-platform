@@ -5,6 +5,7 @@ import { serve } from "inngest/express"
 
 import "dotenv/config"
 import { connectDB } from "./lib/db.js"
+import { inngest , functions } from "./lib/inngest.js"
 
 const app = express()
 
