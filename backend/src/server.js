@@ -19,7 +19,7 @@ app.use(cors(
     }
 ))
 
-app.use("/api/inngest", serve({client: inngest, functions}))
+app.use("/api/inngest", serve({client:inngest, functions}))
 
 const PORT = process.env.PORT
 
