@@ -5,7 +5,7 @@ export async function createSession(req, res) {
     try {
         const { problem, difficulty } = req.body
         const userId   = req.user._id
-        const clerckId = req.clerckId
+        const clerkId = req.clerkId
 
         if (!problem || !difficulty) {
             return res.status(400).json({message:"Problem and difficulty  are required"})
@@ -21,7 +21,7 @@ export async function createSession(req, res) {
 
         await streamClient.video.call("default", callId).getOrCreate({
             data:{
-                created_by_id: clerckId,
+                created_by_id: clerkId,
                 custom: { problem, difficulty, sessionId:session._id.toString() }
             },
         });
