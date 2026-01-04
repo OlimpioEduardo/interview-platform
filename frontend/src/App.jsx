@@ -1,22 +1,24 @@
+import {Navigate, Route, Routes} from "react-router"
+import { useUser } from "@clerk/clerk-react"
+import {Toaster} from "react-hot-toast"
 
-import {SignedIn, SignedOut, SignInButton, SignOutButton} from "@clerk/clerk-react"
+
+import HomePage from "./pages/HomePage"
+import ProblemsPage from "./pages/ProblemsPage"
 function App() {
+
+  const { isSignedIn } = useUser()
   return (
     <>
-    <h1>Welcome to the app</h1>
+   <Routes>
+    <Route path="/" element={<HomePage/>}/>
+    <Route path="/problems" element={isSignedIn ? <ProblemsPage/> : <Navigate to={"/"}/>}/>
+   </Routes>
 
-    <SignedOut>
-      <SignInButton mode='modal'>
-        <button>Login</button>
-      </SignInButton>
-    </SignedOut>
-
-    <SignedIn>
-      <SignOutButton/>
-    </SignedIn>
-    
-    </>
+   <Toaster/>
+   </>
   )
 }
 
 export default App
+// todo: react-query aka tanstack query, axios
