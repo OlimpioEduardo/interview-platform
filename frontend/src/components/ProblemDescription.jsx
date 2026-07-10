@@ -1,4 +1,4 @@
-import { getDifficultyBadgeClass } from "../lib/utls"
+import { getDifficultyBadgeClass } from "../lib/utils"
 
 const ProblemDescription = ({problem, currentProblemId, onProblemChange, allProblems}) => {
   return (

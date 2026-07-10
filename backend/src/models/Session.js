@@ -8,18 +8,18 @@ const sessionSchema = new mongoose.Schema({
     difficulty: {
         type: String,
         enum: ["easy", "medium", "hard"],
-        required:true
+        required: true,
     },
     host: {
         type: mongoose.Schema.Types.ObjectId,
         ref:"User",
-        required:true
+        required: true,
     },
 
     participant: {
         type: mongoose.Schema.Types.ObjectId,
         ref:"User",
-        default:null
+        default: null,
     },
 
     status: {
