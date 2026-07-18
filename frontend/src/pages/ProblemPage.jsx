@@ -7,7 +7,7 @@ import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels"
 import OutputPanel from "../components/OutputPanel"
 import CodeEditor from "../components/CodeEditor"
 import ProblemDescription from "../components/ProblemDescription"
-import { executed } from "../lib/piston"
+import { executeCode } from "../lib/piston.js"
 
 import toast from "react-hot-toast"
 import confetti from "canvas-confetti";
@@ -85,7 +85,7 @@ const ProblemPage = () => {
       setIsRunning(true)
       setOutput(null)
 
-      const result = await executed(selectedLanguage, code)
+      const result = await executeCode(selectedLanguage, code)
       setOutput(result)
       setIsRunning(false)
 
